@@ -1,8 +1,26 @@
-var globalcategory="Work";
+
+var globalcategory="";
 var keepclass=function(){
-	this.feilds=JSON.parse(localStorage.getItem("feilds"));
-	this.notes=JSON.parse(localStorage.getItem("notes"));
-	this.colors=JSON.parse(localStorage.getItem("colors"));
+	 if(typeof(Storage) !== "undefined") {
+	//	localStorage.clear();
+	if(localStorage.getItem("feilds")){
+		//alert("garfg");
+		this.feilds=JSON.parse(localStorage.getItem("feilds"));
+		this.notes=JSON.parse(localStorage.getItem("notes"));
+		this.colors=JSON.parse(localStorage.getItem("colors"));
+
+	}
+	else{
+	//	alert("avhu");
+		localStorage.setItem('colors','{"color0":"DarkSalmon","color1":"blue","color2":"green","color3":"orange","color4":"yellow","color5":"black","c6":"purple"}');
+		localStorage.setItem('feilds','{"count":0}');
+		localStorage.setItem('notes','{"count":0,"data":[]}');
+			
+	}
+}
+else{
+	alert("not supported");
+}
 }
 var keep=new keepclass();
 var main=function(){
@@ -18,6 +36,9 @@ var main=function(){
 	function newfeildfunction(){
 		var newfeild=document.getElementById("newfeildtext");
 		if(newfeild.value!=""){
+			if(keep.notes.count==0){
+				globalcategory=newfeild.value;
+			}
 		var tut=parseInt(keep.feilds["count"])+1;
 		var yu="c"+tut;
 		keep.feilds[yu]=newfeild.value;

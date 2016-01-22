@@ -41,14 +41,18 @@
 	border-radius: 10px;
 }
 .feildbuttons{
+	box-shadow:none;
 	border: 2px solid #6633CC;
 	border-radius: 10px;
 	background-color:#CC9900;
 }
+.feildbuttons:focus{
+	border-radius: 0px;
+}
+
 .dropdown{
 	border: 2px solid #765942;
 	border-radius: 10px;
-
 }
 .delbuttons{
 	border: 2px solid #765942;
@@ -77,6 +81,7 @@
 	border-radius: 10px;
 	background-color:#CC9900;
 }
+
 /*
 
 for(var i=0;i<count;i++){
